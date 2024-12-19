@@ -1,0 +1,145 @@
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background: #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+}
+
+/* Weather App */
+.weather-app {
+  background: #fefefe00;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  width: 300px;
+  position: relative;
+  overflow: hidden; /* Ensures border animation stays inside the container */
+  z-index: 1;
+  border: 8px solid transparent; /* Transparent border to allow the animated border */
+  background-image: linear-gradient(white, white), 
+                    radial-gradient(circle, #f39c12, #3498db, #2ecc71, #9b59b6, #34495e);
+  background-origin: border-box; /* This makes the gradient apply only to the border */
+  background-clip: content-box, border-box; /* Ensures the gradient stays on the border */
+  animation: borderColorChange 3s infinite alternate; /* Infinite color change animation */
+}
+
+@keyframes borderColorChange {
+  0% {
+      background-image: linear-gradient(white, white), radial-gradient(circle, #f39c12, #3498db, #2ecc71, #9b59b6, #34495e);
+  }
+  25% {
+      background-image: linear-gradient(white, white), radial-gradient(circle, #3498db, #2ecc71, #9b59b6, #34495e, #f39c12);
+  }
+  50% {
+      background-image: linear-gradient(white, white), radial-gradient(circle, #2ecc71, #9b59b6, #34495e, #f39c12, #3498db);
+  }
+  75% {
+      background-image: linear-gradient(white, white), radial-gradient(circle, #9b59b6, #34495e, #f39c12, #3498db, #2ecc71);
+  }
+  100% {
+      background-image: linear-gradient(white, white), radial-gradient(circle, #34495e, #f39c12, #3498db, #2ecc71, #9b59b6);
+  }
+}
+
+/* Header */
+h1 {
+  color: #333;
+  font-size: 28px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+/* Search Box */
+.search-box {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+#city-input {
+  padding: 10px;
+  width: 180px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+#city-input:focus {
+  border-color: #007BFF;
+}
+
+#search-btn {
+  padding: 10px 20px;
+  background: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+#search-btn:hover {
+  background: #0056b3;
+}
+
+/* Weather Info */
+.weather-info {
+  margin-top: 20px;
+}
+
+#city-name {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+}
+
+#weather-description {
+  font-size: 18px;
+  color: #777;
+  margin: 10px 0;
+}
+
+#temperature {
+  font-size: 20px;
+  color: #007BFF;
+}
+
+/* Icon */
+#weather-icon img {
+  width: 100px;
+  height: 100px;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Error Message */
+.error-message {
+  color: #ff4d4d;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+/* Animation */
+@keyframes bounce {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+#search-btn {
+  animation: bounce 1s infinite;
+}
